@@ -10,6 +10,7 @@ setup(name='freeGeoIPpy',
       packages=['freeGeoIPpy'],
       install_requires=[
         'requests',
-        'json'
+        'json',
+        'IPy'
       ],
       zip_safe=False)
