@@ -1,4 +1,4 @@
-import json, inspect, requests
+import json, requests
 from IPy import IP as IPChecker
 
 #stores IP Geo Info
