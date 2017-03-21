@@ -1,9 +1,16 @@
 import json, inspect, requests
+from IPy import IP as IPChecker
 
 #stores IP Geo Info
 class GeoIP(object):
     def __init__(self, IP):
-       self.IP = IP
+       self.IP = str(IP)
+
+       flag = self.isIPValid()
+
+       if flag is False:
+           print "invalid IP"
+           return
 
        r = requests.get('https://freegeoip.net/json/'+str(self.IP))
 
@@ -22,6 +29,17 @@ class GeoIP(object):
        self.latitude = data['latitude']
        self.longitude = data['longitude']
        self.metroCode = data['metro_code']
+
+    #validates IP address
+    def isIPValid(self):
+        flag = False
+        try:
+            IPChecker(self.IP)
+            flag = True
+        except ValueError:
+            flag = False
+        return flag
+
 
     def getData(self):
         return self.data
