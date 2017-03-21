@@ -11,7 +11,6 @@ class GeoIP(object):
        dict2 = {}
        temp = json.loads(json.dumps([r.text, dict2]))
        data = json.loads(temp[0])
-       print data['city']
 
        self.countryCode = data['country_code']
        self.countryName = data['country_name']
