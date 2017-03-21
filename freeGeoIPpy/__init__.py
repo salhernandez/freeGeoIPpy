@@ -10,25 +10,8 @@ class GeoIP(object):
 
        if flag is False:
            print "invalid IP"
-           return
-
-       r = requests.get('https://freegeoip.net/json/'+str(self.IP))
-
-       dict1 = {}
-       dict2 = {}
-       temp = json.loads(json.dumps([r.text, dict2]))
-       data = json.loads(temp[0])
-
-       self.countryCode = data['country_code']
-       self.countryName = data['country_name']
-       self.regionCode = data['region_code']
-       self.regionName = data['region_name']
-       self.city = data['city']
-       self.zipCode = data['zip_code']
-       self.timeZone = data['time_zone']
-       self.latitude = data['latitude']
-       self.longitude = data['longitude']
-       self.metroCode = data['metro_code']
+       else:
+           self.getIPGeoData()
 
     #validates IP address
     def isIPValid(self):
@@ -40,6 +23,24 @@ class GeoIP(object):
             flag = False
         return flag
 
+    def getIPGeoData(self):
+        r = requests.get('https://freegeoip.net/json/'+str(self.IP))
+
+        dict1 = {}
+        dict2 = {}
+        temp = json.loads(json.dumps([r.text, dict2]))
+        data = json.loads(temp[0])
+
+        self.countryCode = data['country_code']
+        self.countryName = data['country_name']
+        self.regionCode = data['region_code']
+        self.regionName = data['region_name']
+        self.city = data['city']
+        self.zipCode = data['zip_code']
+        self.timeZone = data['time_zone']
+        self.latitude = data['latitude']
+        self.longitude = data['longitude']
+        self.metroCode = data['metro_code']
 
     def getData(self):
         return self.data
