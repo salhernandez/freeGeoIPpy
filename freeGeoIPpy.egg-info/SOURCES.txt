@@ -1,0 +1,6 @@
+freeGeoIPpy/__init__.py
+freeGeoIPpy.egg-info/PKG-INFO
+freeGeoIPpy.egg-info/SOURCES.txt
+freeGeoIPpy.egg-info/dependency_links.txt
+freeGeoIPpy.egg-info/not-zip-safe
+freeGeoIPpy.egg-info/top_level.txt
